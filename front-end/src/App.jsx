@@ -1,8 +1,35 @@
+import Header from "./components/Header/Header.jsx"
+import NoteForm from "./components/NoteForm/NoteForm.jsx"
+import { useState } from "react"
+import NoteList from "./components/NoteList/NoteList.jsx"
+
 
 function App() {
+  const [notes, setNotes] = useState([])
+  
+
+  function addNote (cardTitle, cardData) {
+    const newNote = {
+      title: cardTitle,
+      content: cardData
+    }
+    setNotes([...notes, newNote])
+  }
+
+  function removeNote(indexToRemove) {
+    const updateNotes = notes.filter((note, currentIndex) => {
+      return indexToRemove !== currentIndex
+    })
+
+    setNotes(updateNotes)
+  }
+
   return (
+    
     <>
-      <h1>Teste</h1>
+      <Header />
+      <NoteForm onAddNote={addNote}/>
+      <NoteList notes={notes} onRemoveNote={removeNote}/>
     </>
   )
 }
