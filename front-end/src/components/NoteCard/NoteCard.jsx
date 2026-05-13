@@ -8,6 +8,7 @@ export default function NoteCard(props) {
                 <p>{note.content}</p>
                 <button onClick={props.removeNote}>Remove Card</button>
             </div>
+            
         </section>
     )
 }
