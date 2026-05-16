@@ -1,3 +1,10 @@
+/*
+    Criar App
+    Usar middlewares
+    Conectar rotas
+    Ligar servidor
+ */
+
 const express = require("express");
 
 const app = express();
