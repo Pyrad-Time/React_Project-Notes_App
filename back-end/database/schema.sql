@@ -1,0 +1,1 @@
+// Vai guardar o SQL da estrutura da tabela
