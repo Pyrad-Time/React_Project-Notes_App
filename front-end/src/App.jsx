@@ -10,6 +10,7 @@ function App() {
 
   function addNote (cardTitle, cardData) {
     const newNote = {
+      id: Date.now(),
       title: cardTitle,
       content: cardData
     }
@@ -17,8 +18,8 @@ function App() {
   }
 
   function removeNote(indexToRemove) {
-    const updateNotes = notes.filter((note, currentIndex) => {
-      return indexToRemove !== currentIndex
+    const updateNotes = notes.filter((note) => {
+      return indexToRemove !== note.id
     })
 
     setNotes(updateNotes)

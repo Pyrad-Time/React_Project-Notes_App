@@ -5,8 +5,8 @@ export default function NoteList(props) {
     const onRemoveNote = props.onRemoveNote
 
     return (
-        notes.map((note, index) => {
-           return <NoteCard key={index} note={note} removeNote={() => onRemoveNote(index)}/>
+        notes.map((note) => {
+           return <NoteCard key={note.id} note={note} removeNote={() => onRemoveNote(note.id)}/>
         })
     )
 }
