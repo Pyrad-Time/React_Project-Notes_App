@@ -1,4 +1,5 @@
 // Fica com a lógica das notas
+const db = require("../database/connection");
 
 let notes = [
     {
@@ -10,9 +11,18 @@ let notes = [
 
 let nextId = 2
 
-function getNotes(req, res) {
-    res.json(notes)
+async function getNotes(req, res) {
+    // res.json(notes)
     // Adiciona valor a memória
+
+    try {
+        const result = await db.query("SELECT * FROM notes ORDER BY id ASC");
+
+        res.json(result.rows);
+    } catch(error) {
+        console.log(error);
+        res.status(500).json({ message: "Erro ao buscar notas no servidor." });
+    }
 }
 
 function postNotes(req, res) {
