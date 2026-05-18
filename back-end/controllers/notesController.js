@@ -1,20 +1,7 @@
 // Fica com a lógica das notas
 const db = require("../database/connection");
 
-let notes = [
-    {
-        id: 1,
-        title: "Server Rodando!",
-        content: "Note test"
-    }
-]
-
-let nextId = 2
-
 async function getNotes(req, res) {
-    // res.json(notes)
-    // Adiciona valor a memória
-
     try {
         const result = await db.query("SELECT * FROM notes ORDER BY id ASC");
 
