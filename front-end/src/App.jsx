@@ -1,11 +1,21 @@
+import { useState, useEffect } from "react"
+import { getNotes } from "./services/notesService.js"
 import Header from "./components/Header/Header.jsx"
 import NoteForm from "./components/NoteForm/NoteForm.jsx"
-import { useState } from "react"
 import NoteList from "./components/NoteList/NoteList.jsx"
 
 
 function App() {
   const [notes, setNotes] = useState([])
+
+  useEffect(() => {
+    async function loadNotes() {
+      const notesFromApi = await getNotes();
+      setNotes(notesFromApi)
+    }
+
+    loadNotes();
+  }, [])
   
 
   function addNote (cardTitle, cardData) {
