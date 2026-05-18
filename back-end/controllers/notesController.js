@@ -25,23 +25,22 @@ async function getNotes(req, res) {
     }
 }
 
-function postNotes(req, res) {
+async function postNotes(req, res) {
     const { title, content } = req.body;
-    // Desestruturação e de definição da váriavel
 
-    const newNote = {
-        id: nextId,
-        title,
-        content
-    };
-    nextId++
-    // Cria um objeto com os valores vindos de body e incrementa o id
+    if(!title || !content) {
+        return res.status(400).json({ message: "Title and content are required." });
+    }
 
-    notes.push(newNote);
-    // Adiciona uma nova nota na memória local
-
-    res.status(201).json(newNote);
-    // Retorna um status de sucesso para o browser e adiciona o new note ao formato json
+    try {
+        const result = await db.query(
+            "INSERT INTO notes (title, content) VALUES ($1, $2) RETURNING *",
+            [title, content]    
+        );
+    } catch(error) {
+        console.log(error);
+        res.status(500).json({ message: "Erro ao criar o banco de dados" });
+    }
 }
 
 function deleteNotes(req, res) {
