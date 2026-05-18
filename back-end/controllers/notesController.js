@@ -43,19 +43,24 @@ async function postNotes(req, res) {
     }
 }
 
-function deleteNotes(req, res) {
-    const id = Number(req.params.id);
-    // req.params é o valor da vaiável retornada no path da url convertida em número
+async function deleteNotes( req, res) {
+    const id = req.params.id
 
-    const noteExist = notes.some((note) => note.id === id);
-    // Valida se o id da memória é compátivel com o id retornado pelo path da url
+    try {
+        const result = await db.query(
+            "DELETE FROM notes WHERE id = $1 RETURNING *",
+            [id]
+        );
 
-    if(!noteExist)
-        return res.status(404).json({ message: "Note not found "});
-    // Caso noteExist retorne falso o navegador recebe um status de erro do cliente 
+        if(result.rows.length === 0) {
+            return res.status(404).json({ message: "Note not found" });
+        };
 
-    notes = notes.filter((note) => note.id !== id)
-    // Retorna um novo array retornando somente aqueles que não são extritamente iguais ao valor de id
+        res.json({ message: "Note deleted successfully" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Erro ao deletar nota no banco" });
+    }
 }
 
 module.exports = {
