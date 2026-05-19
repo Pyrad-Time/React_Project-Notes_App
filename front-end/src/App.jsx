@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { getNotes, createNotes } from "./services/notesService.js"
+import { getNotes, createNote, deleteNote } from "./services/notesService.js"
 import Header from "./components/Header/Header.jsx"
 import NoteForm from "./components/NoteForm/NoteForm.jsx"
 import NoteList from "./components/NoteList/NoteList.jsx"
@@ -19,18 +19,20 @@ function App() {
   
 
   async function addNote (cardTitle, cardData) {
-    const newNote = await createNotes(cardTitle, cardData)
+    const newNote = await createNote(cardTitle, cardData)
+    console.log(newNote)
     setNotes([...notes, newNote])
   }
 
-  function removeNote(indexToRemove) {
+  async function removeNote (idToRemove) {
+    await deleteNote(idToRemove)
+
     const updateNotes = notes.filter((note) => {
-      return indexToRemove !== note.id
+      return note.id !== idToRemove
     })
 
     setNotes(updateNotes)
   }
-
   return (
     
     <>

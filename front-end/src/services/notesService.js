@@ -9,7 +9,7 @@ export async function getNotes() {
     return notes; 
 }
 
-export async function createNotes(title, content) {
+export async function createNote(title, content) {
     const response = await fetch(API_URL, {
         method: "POST",
         headers: {
@@ -18,6 +18,12 @@ export async function createNotes(title, content) {
         body: JSON.stringify({ title, content})
     });
 
-    const newNote = response.json();
+    const newNote = await response.json();
     return newNote;
 }
+
+export async function deleteNote(id) {
+    await fetch(`${API_URL}/${id}`, {
+        method: "DELETE"
+    });
+};
