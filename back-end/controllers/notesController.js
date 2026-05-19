@@ -24,6 +24,7 @@ async function postNotes(req, res) {
             "INSERT INTO notes (title, content) VALUES ($1, $2) RETURNING *",
             [title, content]    
         );
+        res.status(201).json(result.rows[0])
     } catch(error) {
         console.log(error);
         res.status(500).json({ message: "Erro ao criar o banco de dados" });
