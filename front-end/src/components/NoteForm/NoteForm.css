@@ -1,0 +1,54 @@
+.noteForm__section {
+    width: 100%;
+}
+
+.noteForm__container {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-lg);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.noteForm__label {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.noteForm__input,
+.noteForm__textarea {
+    width: 100%;
+    background-color: var(--color-surface-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm);
+    color: var(--color-text);
+}
+
+.noteForm__textarea {
+    resize: vertical;
+    min-height: 10rem;
+}
+
+.noteForm__input:focus,
+.noteForm__textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.noteForm__button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    border-radius: var(--radius-sm);
+    padding: var(--space-md) var(--space-md);
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.noteForm__button:hover {
+    background-color: var(--color-primary-dark);
+}
