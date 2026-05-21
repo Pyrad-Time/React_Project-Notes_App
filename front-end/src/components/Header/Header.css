@@ -1,0 +1,23 @@
+.header__container {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-primary-dark)
+    );
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sr-only {
+    display: none;
+}
+
+.header__img {
+    width: min(100%, 28rem);
+    height: auto;
+}
