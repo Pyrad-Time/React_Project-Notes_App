@@ -1,0 +1,35 @@
+.noteCard__container {
+    background-color: var(--color-accent-soft);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+    padding: var(--space-md);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.noteCard__title {
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.noteCard__content {
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.noteCard__button {
+    align-self: flex-start;
+    background-color: var(--color-danger);
+    color: var(--color-text-light);
+    border-radius: var(--radius-sm);
+    padding: var(--space-xs) var(--space-sm);
+    font-weight: 600;
+}
+
+.noteCard__button:hover{
+    background-color: var(--color-danger-dark);
+}
