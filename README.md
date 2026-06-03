@@ -2,7 +2,7 @@
 
 Aplicação full stack de notas desenvolvida com React, Node.js, Express e PostgreSQL.
 
-O objetivo deste projeto foi praticar o fluxo completo de uma aplicação web, passando pela criação da interface, componentização, consumo de API, organização do back-end, rotas, controllers e persistência de dados em banco relacional. 
+O objetivo deste projeto foi praticar o fluxo completo de uma aplicação web, passando pela criação da interface, componentização, consumo de API, organização do back-end, rotas, controllers e persistência de dados em banco relacional.
 
 ## Tecnologias
 
@@ -39,7 +39,7 @@ O objetivo deste projeto foi praticar o fluxo completo de uma aplicação web, p
 ## Estrutura do projeto
 
 ```txt
-notes-app/
+React_Project-Notes_App/
 ├── frontend/
 │   └── src/
 │       ├── components/
@@ -114,19 +114,31 @@ CREATE TABLE notes (
 ### Clonar o repositório
 
 ```bash
-git clone [link-do-repositorio](https://github.com/Pyrad-Time/React_Project-Notes_App)
+git clone https://github.com/Pyrad-Time/React_Project-Notes_App.git
 cd React_Project-Notes_App
 ```
 
 ### Configurar o banco de dados
 
-Crie o banco de dados:
+Crie o banco de dados no PostgreSQL:
 
 ```sql
 CREATE DATABASE notes_app;
 ```
 
 Depois execute o arquivo `schema.sql` para criar a tabela `notes`.
+
+### Configurar variáveis de ambiente
+
+Na pasta `backend`, crie um arquivo `.env` com as configurações do banco de dados:
+
+```env
+DB_USER=seu_usuario
+DB_HOST=localhost
+DB_DATABASE=notes_app
+DB_PASSWORD=sua_senha
+DB_PORT=5432
+```
 
 ### Rodar o back-end
 
@@ -180,6 +192,17 @@ Durante o desenvolvimento deste projeto, pratiquei:
 MVP finalizado.
 
 O projeto permite criar, listar e excluir notas utilizando front-end, back-end e banco de dados integrados.
+
+Ainda existem melhorias possíveis, como edição de notas, validações mais completas, tratamento visual de erros e deploy da aplicação.
+
+## Possíveis melhorias
+
+* Adicionar edição de notas
+* Melhorar validações no front-end e back-end
+* Exibir mensagens de erro na interface
+* Adicionar estado de carregamento durante requisições
+* Criar deploy do front-end e back-end
+* Melhorar a responsividade e o refinamento visual
 
 ## Autor
 
