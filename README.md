@@ -2,7 +2,7 @@
 
 Aplicação full stack de notas desenvolvida com React, Node.js, Express e PostgreSQL.
 
-O objetivo deste projeto foi praticar o fluxo completo de uma aplicação web, passando pela criação da interface, componentização, consumo de API, organização do back-end, rotas, controllers e persistência de dados em banco relacional.
+O objetivo deste projeto foi praticar o fluxo completo de uma aplicação web, passando pela criação da interface, componentização, consumo de API, organização do back-end, rotas, controllers e persistência de dados em banco relacional. 
 
 ## Tecnologias
 
